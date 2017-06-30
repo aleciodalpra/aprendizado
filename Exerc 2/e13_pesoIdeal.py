@@ -1,9 +1,15 @@
 # https://wiki.python.org.br/EstruturaSequencial
 
-s = input('Informe seu sexo ("m" ou "f" minusculo): ')
-h = float(input('Informe sua altura: '))
+
+while True:
+	s = input('Informe seu sexo ("F" ou "M"): ')
+	if s.lower() in 'm f':
+		break
+	else:
+		print('Informe "F" ou "M"!')
 
 try:
+	h = float(input('Informe sua altura: '))
 	if s == 'm':
 		pesoIdeal = (72.7*h) - 58
 	elif s == 'f':
@@ -26,4 +32,4 @@ try:
 	print('-------------------------------------')
 
 except:
-	print('Informe "f" ou "m" minusculo!')
+	print('Algo deu errado!!!!!')

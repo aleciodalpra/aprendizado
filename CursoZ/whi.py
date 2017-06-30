@@ -84,6 +84,3 @@ while tabuada <= 10:
         print('%d x %d = %d' % (tabuada, x, valor))
         x = x + 1
     tabuada = tabuada + 1
-
-# conteudo de Repetições
-# ultimo video visto TWP260 Repetições aninhadas

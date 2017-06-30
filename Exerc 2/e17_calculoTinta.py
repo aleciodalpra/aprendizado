@@ -7,7 +7,7 @@ rendimento = 6
 
 # descobrir quantos litros são necessários pra área informada
 qtdadeLts = area/rendimento
-print('qtdadeLts: %.2f' % qtdadeLts)
+print('Para pintar %dm sao necessarios %.2f litros de tinta.' % (area, qtdadeLts))
 
 ltsLatao = 18
 vlrLatao = 80
@@ -28,20 +28,27 @@ elif qtdadeLts > ltsGalao and qtdadeLts < ltsLatao:
         while qtdadeLts > ltsGalao:
                 qtdadeLts = qtdadeLts - ltsGalao
                 qtdadeGaloes = qtdadeGaloes + 1
-        valorTotalG = qtdadeGaloes * vlrGalao
         if valorTotalG > vlrLatao:
                 qtdadeLatoes = 1
-                valorTotalL = qtdadeLatoes * vlrLatao
                 qtdadeGaloes = 0
                 valorTotalG = 0
 
 # se a qtdade de litros é maior os litros do latão
 elif qtdadeLts >= ltsLatao:
         qtdadeLatoes = 1
-        while qtdadeLts > ltsLatao:
+        while True:
                 qtdadeLts = qtdadeLts - ltsLatao
-                qtdadeLatoes = qtdadeLatoes + 1
-        valorTotalL = qtdadeLatoes * vlrLatao
+                if qtdadeLts >= ltsLatao:
+                        qtdadeLatoes = qtdadeLatoes + 1
+                elif qtdadeLts > 0 and qtdadeLts < ltsLatao:
+                        qtdadeGaloes = 1
+                        while qtdadeLts > ltsGalao:
+                                qtdadeLts = qtdadeLts - ltsGalao
+                                qtdadeGaloes = qtdadeGaloes + 1
+                        break
+                        
+valorTotalL = qtdadeLatoes * vlrLatao
+valorTotalG = qtdadeGaloes * vlrGalao
 
 print('Galoes: %d' % qtdadeGaloes)
 print('Valor dos galoes: %.2f' % valorTotalG)
